@@ -1,0 +1,10 @@
+.env
+/node_modules
+/dist
+.env.local
+*.log
+*.log.*
+*.log-*
+*.env
+*.env.*
+*.env-*
