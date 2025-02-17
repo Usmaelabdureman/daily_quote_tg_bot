@@ -41,7 +41,7 @@ function formatQuote(quote) {
 
 // Schedule daily quotes (every minute for testing)
 const quotes = await loadQuotes();
-new CronJob('0 9,21 * * *', async () => {
+new CronJob('*/2 * * * *', async () => {
   const quote = getRandomQuote(quotes);
   for (const chatId of subscribers) {
     try {
