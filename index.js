@@ -21,7 +21,7 @@ let subscribers = new Set();
 // Load quotes
 async function loadQuotes() {
   try {
-    const data = await fs.readFile(new URL('./src/quotes.json', import.meta.url), 'utf8');
+    const data = await fs.readFile(new URL('./quotes.json', import.meta.url), 'utf8');
     return JSON.parse(data).quotes;
   } catch (error) {
     console.error('Error loading quotes:', error);
