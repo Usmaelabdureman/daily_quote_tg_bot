@@ -2,7 +2,6 @@ import TelegramBot from 'node-telegram-bot-api';
 import { CronJob } from 'cron';
 import dotenv from 'dotenv';
 import fs from 'fs/promises';
-
 // Load environment variables
 dotenv.config();
 
