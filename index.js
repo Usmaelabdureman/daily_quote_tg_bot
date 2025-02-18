@@ -40,16 +40,16 @@ function formatQuote(quote) {
 
 // Schedule daily quotes (every minute for testing)
 const quotes = await loadQuotes();
-new CronJob('*/2 * * * *', async () => {
-  const quote = getRandomQuote(quotes);
-  for (const chatId of subscribers) {
-    try {
-      await bot.sendMessage(chatId, formatQuote(quote), { parse_mode: 'Markdown' });
-    } catch (error) {
-      console.error(`Error sending quote to ${chatId}:`, error);
-      subscribers.delete(chatId); // Remove invalid chat IDs
+new CronJob('*/5 * * * *', async () => {
+    const quote = getRandomQuote(quotes);
+    for (const chatId of subscribers) {
+        try {
+            await bot.sendMessage(chatId, formatQuote(quote), { parse_mode: 'Markdown' });
+        } catch (error) {
+            console.error(`Error sending quote to ${chatId}:`, error);
+            subscribers.delete(chatId); // Remove invalid chat IDs
+        }
     }
-  }
 }, null, true);
 
 // Command handlers
